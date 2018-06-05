@@ -22,7 +22,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 @WebServlet(name = "AlbumsServlet", urlPatterns = {"/Albums"})
 public class AlbumsServlet extends HttpServlet {
 
-    private final String UPLOAD_DIRECTORY = "/home/a1713477/Área de Trabalho/portifolio-web2/web/uploads";
+    private final String UPLOAD_DIRECTORY = "C:/Users/MAGNO/Documents/UTFPR/WEB2/portifolio-web2/web/assets/uploads/";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

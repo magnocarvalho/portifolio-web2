@@ -21,6 +21,8 @@
                     <div class="item-galeria">
                         <div class="capa-galeria">
                             <img src="${pageContext.request.contextPath}/uploads/${photo.path}">
+                            <img src="${photo.path}">
+                            <img src="C:/Users/MAGNO/Documents/UTFPR/WEB2/portifolio-web2/web/uploads/1527031903343-IMG_0021.JPG">
                         </div>
                     </div>    
                 </c:forEach>
