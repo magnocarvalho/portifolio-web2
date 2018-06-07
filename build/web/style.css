@@ -25,10 +25,6 @@
     font-size: 12px;
 }
 
-a, a:hover, a:visited {
-    text-decoration: none;
-    color: white;
-}
 
 .btn {
     color: white;

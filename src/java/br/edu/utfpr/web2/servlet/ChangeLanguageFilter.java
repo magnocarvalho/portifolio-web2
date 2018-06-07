@@ -24,7 +24,7 @@ import javax.servlet.jsp.jstl.core.Config;
  *
  * @author rod_v
  */
-@WebFilter(urlPatterns = {"/register","/albums"})
+@WebFilter(urlPatterns = {"/*"})
 public class ChangeLanguageFilter implements Filter {
     
  
@@ -34,10 +34,6 @@ public class ChangeLanguageFilter implements Filter {
             throws IOException, ServletException {
         
         String language = ((HttpServletRequest)request).getParameter("language");
-        System.out.println(language);
-        //Locale locale = new Locale(language);
-       // Config.set(((HttpServletRequest)request).getSession(true), Config.FMT_LOCALE, locale);
-        //Config.set(((HttpServletRequest)request).getSession(true), Config.FMT_FALLBACK_LOCALE, locale);
         chain.doFilter(request,response);
         
     }

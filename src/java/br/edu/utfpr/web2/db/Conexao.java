@@ -7,15 +7,13 @@ import java.sql.SQLException;
 public class Conexao {
 
     private static Connection instance;
-
     private Conexao() {
     }
-
     public static Connection getInstance() {
         if (instance == null) {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                return DriverManager.getConnection("jdbc:mysql://localhost/dbweb2", "root", "");
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                return DriverManager.getConnection("jdbc:mysql://localhost/portfolio", "root", "");
             } catch (SQLException ex) {
                 System.err.println("Erro na conexão: " + ex.getMessage());
                 return null;
@@ -26,6 +24,5 @@ public class Conexao {
         } else {
             return instance;
         }
-
     }
 }

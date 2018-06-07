@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import br.edu.utfpr.web2.util.Util;
 
-@WebServlet(name = "AuthServlet", urlPatterns = {"/Auth"})
+@WebServlet(name = "AuthServlet", urlPatterns = {"/auth"})
 public class AuthServlet extends HttpServlet {
 
     private final UsersController usersController = new UsersController();
@@ -20,7 +20,7 @@ public class AuthServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher rd;
-        rd = req.getRequestDispatcher("views/login.jsp");
+        rd = req.getRequestDispatcher("/views/login.jsp");
         Cookie[] cookies = req.getCookies();
         for (int i = 0; i < cookies.length; i++) {
             if (cookies[i].getName().equals("mensagem") && !cookies[i].getValue().equals("")) {

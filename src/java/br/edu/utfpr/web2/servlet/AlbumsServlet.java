@@ -28,31 +28,8 @@ public class AlbumsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        AlbumController albumController = new AlbumController();
-        PhotoController photoController = new PhotoController();
-        String q = req.getParameter("q");
-        ArrayList<Album> albums = new ArrayList<>();
-        if (q == null) {
-            albums = albumController.search("");
-        } else {
-            albums = albumController.search(q);
-        }
-        
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("");
-        
-        if (req.getParameter("id") != null) {
-            Album album = albumController.show(Integer.parseInt(req.getParameter("id")));
-            if (album != null) {
-                requestDispatcher = req.getRequestDispatcher("views/albums/show.jsp");
-                req.setAttribute("album", album);
-                req.setAttribute("photos", photoController.findByAlbum(album.getId()));
-            }
-        } else {
-            requestDispatcher = req.getRequestDispatcher("views/albums/list.jsp");
-            req.setAttribute("albums", albums);
-        }
-
-        requestDispatcher.forward(req, resp);
+      
+      req.getRequestDispatcher("/views/index.jsp").forward(req, resp);
     }
 
     @Override
@@ -107,7 +84,7 @@ public class AlbumsServlet extends HttpServlet {
         } else {
             req.setAttribute("message", "Nao permitido!");
         }
-        resp.sendRedirect("/Albums");
+        resp.sendRedirect("/albums");
     }
 
 }

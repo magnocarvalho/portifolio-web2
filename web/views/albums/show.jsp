@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +14,9 @@
     </head>
 
     <body>
+        <c:if test="${not empty param.language}">
+           <fmt:setLocale value="${param.language}" scope="session"/>
+        </c:if>
         <div class="container">
             <h1>${album.title}</h1>
             <p>${album.description}</p>
@@ -22,38 +26,36 @@
                         <div class="capa-galeria">
                             <img src="${pageContext.request.contextPath}/uploads/${photo.path}">
                             <img src="${photo.path}">
-                            <img src="C:/Users/MAGNO/Documents/UTFPR/WEB2/portifolio-web2/web/uploads/1527031903343-IMG_0021.JPG">
+                            <img src=${pageContext.getServletContext().getRealPath("uploads")}"/1527031903343-IMG_0021.JPG">
                         </div>
                     </div>    
                 </c:forEach>
             </div>
             <div class="comments">
-                <h3>Comments</h3>
+                <h3><fmt:message key="COMMENTS"/></h3>
                 <div class="album-comment">
-                    <div class="comment-author">João Paulo Paes</div>
+                    <div class="comment-author"><fmt:message key="BIXA"/></div>
                     <div class="comment-content">Olá!</div>
                 </div>
                 <div class="album-comment">
-                    <div class="comment-author">João Paulo Paes</div>
+                    <div class="comment-author"><fmt:message key="BIXA"/></div>
                     <div class="comment-content">Hello!</div>
                 </div>
-
-                <h3>Comment</h3>
+                <h3><fmt:message key="COMMENT"/></h3>
                 <form action="/album/${album.id}/comment" method="post" class="form">
                     <div class="form-group">
-                        <label for="author-name">Your name</label>
+                        <label for="author-name"><fmt:message key="YOURNAME"/></label>
                         <input type="text" name="author-name" id="author-name" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="comment-content">Message</label>
+                        <label for="comment-content"><fmt:message key="MESSAGE"/></label>
                         <textarea name="comment-content" id="comment-content" cols="30" rows="10" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary">Send</button>
+                        <button class="btn btn-primary"><fmt:message key="SEND"/></button>
                     </div>
                 </form>
             </div>
         </div>
     </body>
-
 </html>

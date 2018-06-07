@@ -20,7 +20,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         RequestDispatcher rd;
-        rd = req.getRequestDispatcher("views/register.jsp");
+        rd = req.getRequestDispatcher("/views/register.jsp");
         rd.forward(req, resp);
     }
 
@@ -51,7 +51,7 @@ public class RegisterServlet extends HttpServlet {
             resp.addCookie(erro);
         }
         if (erro == null) {
-            resp.sendRedirect("/Register");
+            resp.sendRedirect("/register");
         } else {
             resp.sendRedirect("/Albums");
         }

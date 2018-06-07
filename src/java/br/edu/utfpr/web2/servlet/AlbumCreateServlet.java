@@ -10,18 +10,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "AlbumCreateServletpaesjoaopa", urlPatterns = {"/albums/create"})
+@WebServlet(name = "AlbumCreate", urlPatterns = {"/albums/create"})
 public class AlbumCreateServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        if (req.getSession().getAttribute("logado") != null) {
-            resp.sendRedirect("/Auth");
-        }
+//        if (req.getSession().getAttribute("logado") != null) {
+//            resp.sendRedirect("/auth");
+//        }
         RequestDispatcher rd = req.getRequestDispatcher("/views/albums/create.jsp");
         rd.include(req, resp);
-
     }
 
 }
