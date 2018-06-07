@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "AlbumCreateServletpaesjoaopa", urlPatterns = {"/Albums/create"})
+@WebServlet(name = "AlbumCreateServletpaesjoaopa", urlPatterns = {"/albums/create"})
 public class AlbumCreateServlet extends HttpServlet {
 
     @Override

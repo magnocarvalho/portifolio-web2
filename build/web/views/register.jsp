@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,34 +13,54 @@
     </head>
 
     <body>
+        <c:if test="${not empty param.language}">
+            <fmt:setLocale value="${param.language}" scope="session"/>
+        </c:if>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
+            <div class="p-1 mr-auto">
+               
+            </div>           
+            <div class="p-1 ml-auto d-flex">
+                <div class="m-1">
+                  <a href="/register?language=pt-br">
+                      <img src="${pageContext.servletContext.contextPath}/assets/img/brazil.png">
+                  </a>
+                  <a href="/register?language=en">
+                      <img src="${pageContext.servletContext.contextPath}/assets/img/usa.png">
+                  </a>   
+                </div>
+                <a type="button" class="btn btn-group" 
+                style="color: white; font-weight: bold; margin-left: 20px"><fmt:message key="SIGNIN"/></a>
+            </div>           
+        </nav>
         <div class="container">
-            <h1>Photo Management</h1>
+            <h1><fmt:message key="PHOTOMANAGEMENT"/></h1>
             <div class="row">
                 <div class="col-md-6">
-                    <form action="/Register" method="post" class="form-horizontal">
+                    <form action="/register" method="post" class="form-horizontal">
                         <fieldset>
-                            <legend>Sign up</legend>
+                            <legend><fmt:message key="SIGNUP"/></legend>
                             <c:if test="${cookie.containsKey('message')}">
                                 <div class="alert alert-danger">${hasError}</div>
                             </c:if>
                             <div class="form-group">
-                                <label for="name">Name</label>
+                                <label for="name"><fmt:message key="NAME"/></label>
                                 <input type="text" name="name" id="name" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email"><fmt:message key="EMAIL"/></label>
                                 <input type="text" name="email" id="email" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
+                                <label for="password"><fmt:message key="PASSWORD"/></label>
                                 <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="confirm-password">Confirm password</label>
+                                <label for="confirm-password"><fmt:message key="CONFIRMPASSWORD"/></label>
                                 <input type="password" name="confirm-password" id="confirm-password" class="form-control">
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary">Register</button>
+                                <button class="btn btn-primary"><fmt:message key="REGISTER"/></button>
                             </div>
                         </fieldset>
                     </form>

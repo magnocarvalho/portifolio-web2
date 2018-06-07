@@ -19,10 +19,10 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-@WebServlet(name = "AlbumsServlet", urlPatterns = {"/Albums"})
+@WebServlet(name = "AlbumsServlet", urlPatterns = {"/albums"})
 public class AlbumsServlet extends HttpServlet {
 
-    private final String UPLOAD_DIRECTORY = "C:/Users/MAGNO/Documents/UTFPR/WEB2/portifolio-web2/web/assets/uploads/";
+    private final String UPLOAD_DIRECTORY = "/assets/uploads/";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
